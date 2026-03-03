@@ -1,0 +1,13 @@
+{
+  "name": "syncship-docker-demo",
+  "version": "1.0.0",
+  "description": "A simple Node + Redis app to test SyncShip's Docker integration",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ioredis": "^5.4.1"
+  }
+}

@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    # The left side (8080) is the port mapped to the Host (Droplet)
+    # The right side (8080) is the port inside the container
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    # Redis doesn't need to expose ports to the outside world,
+    # it only needs to be accessible inside the Docker network by the 'web' service.
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:
